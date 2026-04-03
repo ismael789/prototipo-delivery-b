@@ -416,3 +416,29 @@ body {
     margin-bottom: 1rem;
   }
 }
+
+/* 🔥 Hacer más evidente el paso activo (especialmente "Revisar") */
+body[data-ab-variant="b"] .step.active {
+  background: var(--primary-blue);
+  color: var(--white);
+  box-shadow: 0 0 0 2px rgba(0, 102, 255, 0.2),
+              0 4px 12px rgba(0, 102, 255, 0.3);
+  transform: scale(1.05);
+}
+
+/* 🔥 Animación suave para llamar atención */
+body[data-ab-variant="b"] .step.active {
+  animation: pulseStep 1s ease;
+}
+
+@keyframes pulseStep {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1.05); }
+}
+
+/* 🔥 Paso 3 (Revisar) aún más visible cuando está activo */
+body[data-ab-variant="b"] .step[data-step-indicator="3"].active {
+  background: #003bb5;
+  box-shadow: 0 0 12px rgba(0, 102, 255, 0.6);
+}

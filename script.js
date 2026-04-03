@@ -300,5 +300,18 @@
     mostrarSoloPanel(elStepRest);
   });
 
+  // 🔥 sonido meme al presionar "-"
+  var sonidoMeme = document.getElementById('sonido-meme');
+
+  document.addEventListener('click', function(e) {
+    var btn = e.target.closest('.btn-restar');
+    if (!btn) return;
+
+    if (sonidoMeme) {
+      sonidoMeme.currentTime = 0;
+      sonidoMeme.play();
+    }
+  });
+
   filtrarRestaurantes();
 })();

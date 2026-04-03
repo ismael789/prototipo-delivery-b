@@ -131,6 +131,10 @@ body[data-ab-variant="b"] #total-delivery {
   font-weight: 700;
 }
 
+body[data-ab-variant="b"] .total-line {
+  border-top: 2px solid var(--light-blue);
+  padding-top: 1rem;
+}
 
 /* =========================
    MEJORAS UX/UI (SIN ROMPER NADA)
@@ -291,8 +295,4 @@ body[data-ab-variant="b"] .panel {
     opacity: 1;
     transform: translateY(0);
   }
-}
-body[data-ab-variant="b"] .total-line {
-  border-top: 2px solid var(--light-blue);
-  padding-top: 1rem;
 }
