@@ -133,6 +133,10 @@
         '<span class="plato-precio">' +
         formatEuros(pl.precio) +
         '</span>' +
+        // Aquí agregué el botón de restar y conservé el tuyo de agregar
+        '<button type="button" class="btn-mini btn-restar" data-restar-plato="' +
+        pl.id +
+        '">−</button>' +
         '<button type="button" class="btn-mini" data-add-plato="' +
         pl.id +
         '" data-nombre="' +
@@ -170,6 +174,20 @@
         cantidad: 1,
         img: img
       });
+    }
+  }
+
+  // Nueva función basada en tu propuesta para restar platos
+  function restarPlato(idPlato) {
+    for (var i = 0; i < pedido.length; i++) {
+      if (pedido[i].idPlato === idPlato) {
+        pedido[i].cantidad -= 1;
+        // Si llega a cero o menos, lo eliminamos del carrito
+        if (pedido[i].cantidad <= 0) {
+          pedido.splice(i, 1);
+        }
+        return;
+      }
     }
   }
 
@@ -220,14 +238,24 @@
 
   elFiltro.addEventListener('change', filtrarRestaurantes);
 
+  // Escuchador actualizado para captar tanto el click de añadir como el de restar
   elListaPlatos.addEventListener('click', function (e) {
-    var b = e.target.closest('[data-add-plato]');
-    if (!b) return;
-    var id = b.getAttribute('data-add-plato');
-    var nombre = b.getAttribute('data-nombre');
-    var precio = parseFloat(b.getAttribute('data-precio'), 10);
-    var imgPlato = b.getAttribute('data-img') || '';
-    agregarPlato(id, nombre, precio, imgPlato);
+    var bMas = e.target.closest('[data-add-plato]');
+    if (bMas) {
+      var id = bMas.getAttribute('data-add-plato');
+      var nombre = bMas.getAttribute('data-nombre');
+      var precio = parseFloat(bMas.getAttribute('data-precio'), 10);
+      var imgPlato = bMas.getAttribute('data-img') || '';
+      agregarPlato(id, nombre, precio, imgPlato);
+      return;
+    }
+
+    var bMenos = e.target.closest('[data-restar-plato]');
+    if (bMenos) {
+      var idRestar = bMenos.getAttribute('data-restar-plato');
+      restarPlato(idRestar);
+      return;
+    }
   });
 
   document.getElementById('btn-volver-rest').addEventListener('click', function () {
