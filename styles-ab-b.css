@@ -131,6 +131,167 @@ body[data-ab-variant="b"] #total-delivery {
   font-weight: 700;
 }
 
+
+/* =========================
+   MEJORAS UX/UI (SIN ROMPER NADA)
+   ========================= */
+
+/* 🔥 Botón carrito más visible */
+body[data-ab-variant="b"] #btn-carrito {
+  width: 100%;
+  font-size: 1rem;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 102, 255, 0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+body[data-ab-variant="b"] #btn-carrito:hover {
+  transform: translateY(-2px) scale(1.01);
+}
+
+/* Efecto leve tipo “llamativo” */
+body[data-ab-variant="b"] #btn-carrito::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+body[data-ab-variant="b"] #btn-carrito:hover::after {
+  opacity: 1;
+}
+
+
+/* ✨ Mejor jerarquía de títulos */
+body[data-ab-variant="b"] h2 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+body[data-ab-variant="b"] .muted {
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+
+/* 🚀 Steps más claros */
+body[data-ab-variant="b"] .steps {
+  gap: 0.75rem;
+}
+
+body[data-ab-variant="b"] .step {
+  padding: 0.4rem 0.7rem;
+  border-radius: 999px;
+}
+
+body[data-ab-variant="b"] .step.active {
+  transform: scale(1.05);
+}
+
+body[data-ab-variant="b"] .step:not(.active) {
+  opacity: 0.7;
+}
+
+
+/* 🎯 Botón volver más claro */
+body[data-ab-variant="b"] .link-back.confusing {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--primary-blue);
+  opacity: 0.85;
+  transition: all 0.2s;
+}
+
+body[data-ab-variant="b"] .link-back.confusing:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+
+/* 🧠 Cards más interactivas */
+body[data-ab-variant="b"] .card-rest {
+  transition: all 0.25s ease;
+}
+
+body[data-ab-variant="b"] .card-rest:active {
+  transform: scale(0.98);
+}
+
+
+/* ➕➖ Botones mini (mejor feedback) */
+body[data-ab-variant="b"] .btn-mini {
+  border-radius: 50%;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+body[data-ab-variant="b"] .btn-mini:hover {
+  transform: scale(1.15);
+}
+
+body[data-ab-variant="b"] .btn-mini:active {
+  transform: scale(0.95);
+}
+
+
+/* 📦 Lista de platos más limpia */
+body[data-ab-variant="b"] .plato-row {
+  padding: 0.75rem 0;
+  transition: background 0.2s;
+}
+
+body[data-ab-variant="b"] .plato-row:hover {
+  background: rgba(0, 102, 255, 0.04);
+}
+
+
+/* 🧾 Resumen más claro */
+body[data-ab-variant="b"] .resumen-line {
+  padding: 0.6rem 0;
+}
+
+body[data-ab-variant="b"] #total-delivery {
+  font-size: 1.3rem;
+}
+
+
+/* 💥 Botón principal más atractivo */
+body[data-ab-variant="b"] .btn-primary {
+  box-shadow: 0 8px 20px rgba(0, 102, 255, 0.3);
+  font-size: 1rem;
+}
+
+body[data-ab-variant="b"] .btn-primary:active {
+  transform: scale(0.97);
+}
+
+
+/* 📍 Sticky CTA más elegante */
+body[data-ab-variant="b"] .sticky-cta {
+  backdrop-filter: blur(8px);
+}
+
+
+/* 🎬 Animación suave al cambiar panel */
+body[data-ab-variant="b"] .panel {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 body[data-ab-variant="b"] .total-line {
   border-top: 2px solid var(--light-blue);
   padding-top: 1rem;
